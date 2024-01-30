@@ -8,6 +8,7 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
+  //  this is a comment
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
