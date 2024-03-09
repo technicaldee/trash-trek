@@ -6,6 +6,7 @@ import 'package:trash_trek/game/utils/color_theme.dart';
 import 'package:trash_trek/game/widgets/game_over_overlay.dart';
 import 'package:trash_trek/game/widgets/game_overlay.dart';
 import 'package:trash_trek/game/widgets/main_menu_overlay.dart';
+import 'package:trash_trek/complete_screen.dart';
 
 void main() {
   runApp(const MyApp());
