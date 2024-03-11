@@ -1,10 +1,15 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:trash_trek/game/car_race.dart';
+import 'package:trash_trek/game/widgets/widgets.dart';
 import 'package:trash_trek/generated/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CompleteScreen extends StatelessWidget {
-  const CompleteScreen({super.key});
+  const CompleteScreen(this.game, {super.key});
+
+  final Game game;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,7 @@ class CompleteScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'COMPLETE',
+                        'Game Over',
                         style: GoogleFonts.rubik(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -89,12 +94,9 @@ class CompleteScreen extends StatelessWidget {
                           height: 30,
                           width: 30,
                         ),
-                        Text(
-                          '32',
-                          style: GoogleFonts.rubik(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 30),
+                        GameScoreDisplay(
+                          game: game,
+                          isLight: true,
                         ),
                         SizedBox()
                       ],
@@ -103,51 +105,31 @@ class CompleteScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 8),
-              height: MediaQuery.of(context).size.height/12,
-              child: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  SvgPicture.asset(Assets.assetsBlueButton),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Repeat',
-                        style: GoogleFonts.rubik(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 20),
-                      ),
-
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 8),
-
-              height: MediaQuery.of(context).size.height/12,
-              child: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  SvgPicture.asset(Assets.assetsAshButton),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Exit',
-                        style: GoogleFonts.rubik(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 20),
-                      ),
-
-                    ],
-                  )
-                ],
+            GestureDetector(
+              onTap: () {
+                (game as CarRace).resetGame();
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 8),
+                height: MediaQuery.of(context).size.height / 12,
+                child: Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    SvgPicture.asset(Assets.assetsBlueButton),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Play Again',
+                          style: GoogleFonts.rubik(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],

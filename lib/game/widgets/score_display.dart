@@ -13,8 +13,7 @@ class GameScoreDisplay extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: (game as CarRace).gameManager.score,
       builder: (context, value, child) {
-        return Text('Score: $value',
-            style: Theme.of(context).textTheme.displaySmall!);
+        return Text('$value', style: Theme.of(context).textTheme.displaySmall!);
       },
     );
   }

@@ -15,12 +15,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.4
   flame_audio: ^2.0.3
+  flutter_svg: ^2.0.9
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.7
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  flutter_svg: ^2.0.9
 
 flutter:
   uses-material-design: true
@@ -29,3 +31,18 @@ flutter:
     - assets/images/game/
     - assets/audio/audio.mp3
     - assets/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#ffffff"
+
+  image: assets/images/icon.png
+
+  android_12:
+    color: "#ffffff"
+    image: assets/images/icon.png
